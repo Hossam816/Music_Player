@@ -1,0 +1,9 @@
+-rootPath
+C:/Users/Cesar/Documents/lab/Music_Player/Music_Player
+-cmake-output
+-output-file
+C:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build/.qt/qml_imports/MusicPlayer_conf.cmake
+-importPath
+C:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build
+-importPath
+C:/QT/6.9.0/msvc2022_64/qml

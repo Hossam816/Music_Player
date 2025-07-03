@@ -1,0 +1,10 @@
+^C:\USERS\CESAR\DOCUMENTS\LAB\MUSIC_PLAYER\MUSIC_PLAYER\BUILD\CMAKEFILES\B13E17119C03B08FA0044D45732F7A72\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Cesar/Documents/lab/Music_Player/Music_Player -BC:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build/MusicPlayer.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

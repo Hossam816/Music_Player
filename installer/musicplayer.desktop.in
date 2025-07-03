@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=@APP_NAME@
+Comment=@APP_DESCRIPTION@
+Exec=MusicPlayer
+Icon=musicplayer
+Terminal=false
+Categories=AudioVideo;Audio;Player;Qt;
+Keywords=music;player;audio;mp3;wav;flac; 

@@ -1,0 +1,32 @@
+^C:\USERS\CESAR\DOCUMENTS\LAB\MUSIC_PLAYER\MUSIC_PLAYER\BUILD\CMAKEFILES\D3EB28BF169182974A6053239184F796\MUSICPLAYER_BUILD.CMAKE.RULE
+setlocal
+cd C:\Users\Cesar\Documents\lab\Music_Player\Music_Player
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+call C:\Users\Cesar\Documents\lab\Music_Player\Music_Player\build\.qt\bin\qt_setup_tool_path.bat C:/QT/6.9.0/msvc2022_64/bin/qmlimportscanner.exe @C:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build/.qt/qml_imports/MusicPlayer_build.rsp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\CESAR\DOCUMENTS\LAB\MUSIC_PLAYER\MUSIC_PLAYER\BUILD\CMAKEFILES\B13E17119C03B08FA0044D45732F7A72\MUSICPLAYER_QMLIMPORTSCAN.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\CESAR\DOCUMENTS\LAB\MUSIC_PLAYER\MUSIC_PLAYER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Cesar/Documents/lab/Music_Player/Music_Player -BC:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build --check-stamp-file C:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

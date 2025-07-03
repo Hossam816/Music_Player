@@ -1,0 +1,3 @@
+set(__QT_DEPLOY_TARGET_MusicPlayer_FILE C:/Users/Cesar/Documents/lab/Music_Player/Music_Player/build/Debug/MusicPlayer.exe)
+set(__QT_DEPLOY_TARGET_MusicPlayer_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_MusicPlayer_RUNTIME_DLLS C:/QT/6.9.0/msvc2022_64/bin/Qt6Quickd.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6Multimediad.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6Widgetsd.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6QmlMetad.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6QmlWorkerScriptd.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6QmlModelsd.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6Qmld.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6OpenGLd.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6Networkd.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6Guid.dll;C:/QT/6.9.0/msvc2022_64/bin/Qt6Cored.dll)

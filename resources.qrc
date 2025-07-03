@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+		<file>assets/music.ico</file>
+		<file>qml/Main.qml</file>
+    </qresource>
+</RCC> 

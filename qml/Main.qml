@@ -1,0 +1,233 @@
+import QtQuick 6.5
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
+
+ApplicationWindow {
+    id: rootWindow
+    visible: true
+    title: "Music Player"
+    width: 800
+    height: 700
+    minimumWidth: 600
+    minimumHeight: 500
+
+    // Background gradient
+    Rectangle {
+        anchors.fill: parent
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "#2c3e50" }
+            GradientStop { position: 1.0; color: "#34495e" }
+        }
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 20
+        spacing: 20
+
+        // Header
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 60
+            color: "transparent"
+            
+            Text {
+                anchors.centerIn: parent
+                text: "Music Player"
+                font.pixelSize: 28
+                font.bold: true
+                color: "white"
+            }
+        }
+
+        // Now Playing Section
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 100
+            color: "transparent"
+            border.color: "#3498db"
+            border.width: 2
+            radius: 10
+
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.margins: 15
+                spacing: 10
+
+                Text {
+                    text: "Now Playing:"
+                    font.pixelSize: 14
+                    color: "#bdc3c7"
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                Text {
+                    text: musicController.currentSong
+                    font.pixelSize: 18
+                    font.bold: true
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    Layout.fillWidth: true
+                    elide: Text.ElideMiddle
+                }
+            }
+        }
+
+        // Progress Bar Section
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 80
+            color: "transparent"
+            border.color: "#27ae60"
+            border.width: 2
+            radius: 10
+
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.margins: 15
+                spacing: 10
+
+                // Progress Bar
+                Slider {
+                    id: progressSlider
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 30
+                    from: 0
+                    to: musicController.duration
+                    value: musicController.position
+                    enabled: musicController.duration > 0
+
+                    onMoved: {
+                        musicController.SeekToPosition(value)
+                    }
+                }
+
+                // Time Display
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 10
+
+                    Text {
+                        text: musicController.formattedPosition
+                        font.pixelSize: 12
+                        color: "#bdc3c7"
+                        Layout.alignment: Qt.AlignLeft
+                    }
+
+                    Item { Layout.fillWidth: true }
+
+                    Text {
+                        text: musicController.formattedDuration
+                        font.pixelSize: 12
+                        color: "#bdc3c7"
+                        Layout.alignment: Qt.AlignRight
+                    }
+                }
+            }
+        }
+
+        // Control Buttons
+        RowLayout {
+            spacing: 15
+            Layout.alignment: Qt.AlignHCenter
+
+            Button {
+                text: "⏮ Previous"
+                font.pixelSize: 14
+                Layout.preferredWidth: 100
+                Layout.preferredHeight: 40
+                
+                onClicked: musicController.Previous()
+            }
+
+            Button {
+                text: musicController.isPlaying ? "⏸ Pause" : "▶ Play"
+                font.pixelSize: 14
+                Layout.preferredWidth: 100
+                Layout.preferredHeight: 40
+                
+                onClicked: musicController.isPlaying ? musicController.Pause() : musicController.Play()
+            }
+
+            Button {
+                text: "⏭ Next"
+                font.pixelSize: 14
+                Layout.preferredWidth: 100
+                Layout.preferredHeight: 40
+                
+                onClicked: musicController.Next()
+            }
+        }
+
+        // Volume Control Section
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 80
+            color: "transparent"
+            border.color: "#f39c12"
+            border.width: 2
+            radius: 10
+
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.margins: 15
+                spacing: 10
+
+                Text {
+                    text: "Volume: " + musicController.volume + "%"
+                    font.pixelSize: 14
+                    color: "#bdc3c7"
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                // Volume Slider
+                Slider {
+                    id: volumeSlider
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 30
+                    from: 0
+                    to: 100
+                    value: musicController.volume
+
+                    onMoved: {
+                        musicController.SetVolume(value)
+                    }
+                }
+            }
+        }
+
+        // Open Folder Button
+        Button {
+            text: "📁 Open Music Folder"
+            font.pixelSize: 16
+            Layout.preferredWidth: 200
+            Layout.preferredHeight: 50
+            Layout.alignment: Qt.AlignHCenter
+            
+            onClicked: musicController.OpenFolder()
+        }
+
+        // Spacer
+        Item {
+            Layout.fillHeight: true
+        }
+
+        // Status Bar
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 30
+            color: "transparent"
+            border.color: "#7f8c8d"
+            border.width: 1
+            radius: 5
+
+            Text {
+                anchors.centerIn: parent
+                text: "Ready to play music"
+                font.pixelSize: 12
+                color: "#bdc3c7"
+            }
+        }
+    }
+}
